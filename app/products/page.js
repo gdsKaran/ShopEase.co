@@ -4,15 +4,16 @@ import LogoClouds from "@/components/HomePageContent/logoClouds";
 import PromoSection from "@/components/HomePageContent/PromoSection";
 import SummerCollection from "@/components/HomePageContent/summerStyle";
 import ViewList from "@/components/HomePageContent/viewList";
+import ViewList2 from "@/components/HomePageContent/viewList2";
 
 export default function Products() {
   return (
     <>
       <SummerCollection />
+      <ViewList />
+      <ViewList2 />
       <CollectionSec />
-      <ViewList />
       <PromoSection />
-      <ViewList />
       <BentoGrids />
       <LogoClouds />
     </>

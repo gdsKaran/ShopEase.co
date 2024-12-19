@@ -16,7 +16,7 @@ const productss = [
   },
 ];
 
-export default function ViewList() {
+export default function ViewList2() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -31,16 +31,13 @@ export default function ViewList() {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Trendy & Premium T-Shirts
+          Sneak the Peak Jackets
         </h2>
 
         {/* Horizontal scrolling container */}
         <div className="mt-6 flex space-x-6 overflow-x-scroll scrollbar-hide">
           {products
-            .filter(
-              (item) =>
-                item.category.toLowerCase() === "t-shirts" && item.images
-            )
+            .filter((item) => item.category.toLowerCase() === "jackets")
             .map((product) => (
               <div
                 key={product._id}
