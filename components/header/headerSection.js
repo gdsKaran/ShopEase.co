@@ -69,8 +69,14 @@ const navigation = {
             { name: "Pants", href: "#" },
             { name: "Denim", href: "#" },
             { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
+            {
+              name: "T-Shirts",
+              href: "http://localhost:3000/category/T-Shirts",
+            },
+            {
+              name: "Jackets",
+              href: "http://localhost:3000/category/Female-Jackets",
+            },
             { name: "Activewear", href: "#" },
             { name: "Browse All", href: "#" },
           ],
@@ -130,7 +136,10 @@ const navigation = {
             { name: "Pants", href: "#" },
             { name: "Sweaters", href: "#" },
             { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
+            {
+              name: "Jackets",
+              href: "http://localhost:3000/category/Male-Jackets",
+            },
             { name: "Activewear", href: "#" },
             { name: "Browse All", href: "#" },
           ],
@@ -346,11 +355,7 @@ export default function HeaderSection() {
               <div className="ml-4 flex lg:ml-0">
                 <a href="/">
                   <span className="sr-only">Your Company</span>
-                  <img
-                    alt=""
-                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                    className="h-8 w-auto"
-                  />
+                  <img alt="" src="/images/logo.png" className="h-18 w-10" />
                 </a>
               </div>
 

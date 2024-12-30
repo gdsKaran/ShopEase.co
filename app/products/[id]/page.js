@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ObjectId } from "mongodb";
 import { connectToDatabase } from "@/db/connect";
-import ProductDetail from "@/components/productDetailPage";
+import ProductDetail from "@/components/Product/productDetailPage";
 
 // export async function generateMetadata({ params }) {
 //   const { id } = params;
