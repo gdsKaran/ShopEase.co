@@ -1,4 +1,10 @@
+"use client";
+
+import { Signup } from "@/actions/auth";
+import { useFormState } from "react-dom";
+import Alert from "../alert";
 export default function AuthForm() {
+  const [formState, formAction] = useFormState(Signup, {});
   return (
     <>
       {/*
@@ -13,7 +19,7 @@ export default function AuthForm() {
         <div className="w-full max-w-sm space-y-10">
           <div>
             <img
-              alt="Your Company"
+              alt="Sign Up"
               src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/lock_secure_security_password_private_key-512.png"
               className="mx-auto h-10 w-auto"
             />
@@ -21,7 +27,15 @@ export default function AuthForm() {
               Sign in to your account
             </h2>
           </div>
-          <form action="#" method="POST" className="space-y-6">
+
+          <form action={formAction} className="space-y-6">
+            {formState.errors && (
+              <ul id="form-errors">
+                {Object.keys(formState.errors).map((error) => (
+                  <Alert key={error} alert={formState.errors[error]} />
+                ))}
+              </ul>
+            )}
             <div>
               <div className="col-span-2">
                 <input

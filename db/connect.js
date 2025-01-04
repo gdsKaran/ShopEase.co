@@ -14,3 +14,10 @@ export async function connectToDatabase() {
   const db = client.db("Shophere");
   return db;
 }
+
+export async function connectToDatabase2() {
+  const client = await clientPromise;
+  const db = client.db("Shophere");
+  await db.collection("users").createIndex({ email: 1 }, { unique: true });
+  return db;
+}
