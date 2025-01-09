@@ -1,6 +1,6 @@
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
-export default function Alert({ alert, key }) {
+export default function Alert({ alert }) {
   return (
     <div className="rounded-md bg-yellow-50 p-2">
       <div className="flex items-center">
@@ -15,7 +15,7 @@ export default function Alert({ alert, key }) {
         {/* Text Section */}
         <div className="ml-3">
           <div className="text-sm text-yellow-700">
-            <span key={key}>{alert}</span>
+            <span>{alert}</span>
           </div>
         </div>
       </div>

@@ -9,12 +9,15 @@
     "start": "next start",
     "lint": "next lint"
   },
-
   "dependencies": {
     "@headlessui/react": "^2.1.10",
     "@heroicons/react": "^2.1.5",
+    "@lucia-auth/adapter-sqlite": "^3.0.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "mongodb": "^6.9.0",
+    "better-sqlite3": "^11.7.2",
+    "lucia": "^3.2.2",
+    "lucia-auth": "^1.8.0",
+    "mongodb": "^6.12.0",
     "mongoose": "^8.7.0",
     "next": "^14.2.15",
     "react": "^18",

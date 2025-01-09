@@ -1,10 +1,13 @@
 "use client";
 
-import { Signup } from "@/actions/auth";
+import { auth } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import Alert from "../alert";
-export default function AuthForm() {
-  const [formState, formAction] = useFormState(Signup, {});
+export default function AuthForm({ mode }) {
+  const [formState, formAction] = useFormState(
+    (prevState, formData) => auth({ mode, prevState, formData }),
+    {}
+  );
   return (
     <>
       {/*
@@ -24,7 +27,7 @@ export default function AuthForm() {
               className="mx-auto h-10 w-auto"
             />
             <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-              Sign in to your account
+              {mode === "signin" ? "Sign in to" : "Create"} your account
             </h2>
           </div>
 
@@ -102,15 +105,26 @@ export default function AuthForm() {
                   Remember me
                 </label>
               </div>
-
-              <div className="text-sm/6">
-                <a
-                  href="#"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
-                >
-                  Forgot password?
-                </a>
-              </div>
+              {mode === "signin" && (
+                <div className="text-sm/6">
+                  <a
+                    href="/authentication/?mode=register"
+                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >
+                    register?
+                  </a>
+                </div>
+              )}
+              {mode === "register" && (
+                <div className="text-sm/6">
+                  <a
+                    href="/authentication/?mode=signin"
+                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >
+                    Login with an existing account?
+                  </a>
+                </div>
+              )}
             </div>
 
             <div>
@@ -118,7 +132,7 @@ export default function AuthForm() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                {mode === "signin" ? "Sign in" : "Create Account"}
               </button>
             </div>
           </form>

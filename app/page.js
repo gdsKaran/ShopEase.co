@@ -5,8 +5,13 @@ import PromoSection from "@/components/HomePageContent/PromoSection";
 import SummerCollection from "@/components/HomePageContent/summerStyle";
 import ViewList from "@/components/HomePageContent/viewList";
 import ViewList2 from "@/components/HomePageContent/viewList2";
-
-export default function Home() {
+import { verifyAuth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+export default async function Home() {
+  const result = await verifyAuth();
+  if (!result.user) {
+    return redirect("/authentication");
+  }
   return (
     <>
       <SummerCollection />

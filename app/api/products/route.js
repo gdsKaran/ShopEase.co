@@ -2,8 +2,7 @@ import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server.js";
 import { ObjectId } from "mongodb";
 
-const url =
-  "mongodb+srv://gdskaran:lovemeloveme@cluster0.e0fzt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const url = process.env.MONGODB_URI;
 
 let cachedClient = null; // Cache the MongoDB client for reuse
 let cachedDb = null; // Cache the database instance for reuse
