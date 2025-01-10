@@ -35,6 +35,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { logout } from "@/actions/auth";
 
 const navigation = {
   categories: [
@@ -71,11 +72,11 @@ const navigation = {
             { name: "Sweaters", href: "#" },
             {
               name: "T-Shirts",
-              href: "http://localhost:3000/category/T-Shirts",
+              href: "http://localhost:3000/home/category/T-Shirts",
             },
             {
               name: "Jackets",
-              href: "http://localhost:3000/category/Female-Jackets",
+              href: "http://localhost:3000/home/category/Female-Jackets",
             },
             { name: "Activewear", href: "#" },
             { name: "Browse All", href: "#" },
@@ -138,7 +139,7 @@ const navigation = {
             { name: "T-Shirts", href: "#" },
             {
               name: "Jackets",
-              href: "http://localhost:3000/category/Male-Jackets",
+              href: "http://localhost:3000/home/category/Male-Jackets",
             },
             { name: "Activewear", href: "#" },
             { name: "Browse All", href: "#" },
@@ -175,7 +176,7 @@ const navigation = {
   ],
 };
 
-export default function HeaderSection() {
+export default function HeaderSection({ isLogin }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -461,19 +462,23 @@ export default function HeaderSection() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
+                  {!isLogin.user && (
+                    <a
+                      href="/authentication"
+                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    >
+                      Sign in
+                    </a>
+                  )}
+
+                  {isLogin.user && (
+                    <form action={logout}>
+                      <button className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        Logout
+                      </button>
+                    </form>
+                  )}
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

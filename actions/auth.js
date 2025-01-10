@@ -29,7 +29,7 @@ export async function Signup(prevState, formData) {
   try {
     const id = createUser(email, hashedPassword);
     await createAuthSession(id);
-    redirect("/");
+    redirect("/home");
   } catch (err) {
     if (err.code === "SQLITE_CONSTRAINT_UNIQUE") {
       return {
@@ -67,7 +67,7 @@ export async function Login(prevState, formData) {
   }
 
   await createAuthSession(existingUser.id);
-  redirect("/");
+  redirect("/home");
 }
 
 export async function auth({ mode, prevState, formData }) {
