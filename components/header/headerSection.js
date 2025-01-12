@@ -354,7 +354,7 @@ export default function HeaderSection({ isLogin }) {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/">
+                <a href="/home">
                   <span className="sr-only">Your Company</span>
                   <img alt="" src="/images/logo.png" className="h-18 w-10" />
                 </a>
@@ -509,7 +509,10 @@ export default function HeaderSection({ isLogin }) {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <a
+                    href="/home/cart"
+                    className="group -m-2 flex items-center p-2"
+                  >
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"

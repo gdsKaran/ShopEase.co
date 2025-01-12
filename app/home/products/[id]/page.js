@@ -1,42 +1,25 @@
 import { notFound } from "next/navigation";
 import { ObjectId } from "mongodb";
-import { connectToDatabase } from "@/db/connect";
+
 import ProductDetail from "@/components/Product/productDetailPage";
-
-// export async function generateMetadata({ params }) {
-//   const { id } = params;
-
-//   if (!ObjectId.isValid(id)) {
-//     return { title: "Invalid Product" };
-//   }
-
-//   const db = await connectToDatabase();
-//   const collection = db.collection("Products");
-//   const product = await collection.findOne({ _id: new ObjectId(id) });
-
-//   if (!product) {
-//     return { title: "Product Not Found" };
-//   }
-
-//   return { title: product.name };
-// }
+import { verifyAuth } from "@/lib/auth";
+import { getProduct } from "@/actions/products";
 
 const ProductInfo = async ({ params }) => {
   const { id } = params;
+  const result = await verifyAuth();
 
   if (!ObjectId.isValid(id)) {
     notFound(); // Renders a 404 page
   }
+  const product = await getProduct(id);
+  if (result.user !== null) {
+    const userId = result.user.id;
 
-  const db = await connectToDatabase();
-  const collection = db.collection("Products");
-  const product = await collection.findOne({ _id: new ObjectId(id) });
-
-  if (!product) {
-    notFound(); // Renders a 404 page
+    return <ProductDetail product={product} id={id} userId={userId} />;
   }
 
-  return <ProductDetail product={product} />;
+  return <ProductDetail product={product} userId={null} />;
 };
 
 export default ProductInfo;

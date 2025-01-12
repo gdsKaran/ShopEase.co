@@ -2,7 +2,7 @@
 
 import { auth } from "@/actions/auth";
 import { useFormState } from "react-dom";
-import Alert from "../alert";
+import AuthAlert from "../alerts/AuthAlert";
 export default function AuthForm({ mode }) {
   const [formState, formAction] = useFormState(
     (prevState, formData) => auth({ mode, prevState, formData }),
@@ -35,7 +35,7 @@ export default function AuthForm({ mode }) {
             {formState.errors && (
               <ul id="form-errors">
                 {Object.keys(formState.errors).map((error) => (
-                  <Alert key={error} alert={formState.errors[error]} />
+                  <AuthAlert key={error} alert={formState.errors[error]} />
                 ))}
               </ul>
             )}

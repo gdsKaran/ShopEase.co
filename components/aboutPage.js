@@ -9,11 +9,42 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: "What's makes us different from others?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Geniune products at geniune price with great customer statisfaction rate.",
   },
-  // More questions...
+  {
+    question: "Getting problems on return or refund?",
+    answer:
+      "Worry not, our team will resolve the problem as fast as can. And will reach you as quickly.",
+  },
+  {
+    question: "Want to know where your order is?",
+    answer: "Enter the order number to get the order track details.",
+  },
+  {
+    question: "Card payment?",
+    answer:
+      "We accept cards with Mastercard, Visa or Rupay symbol. EMI option is also available with the selected cards.",
+  },
+  {
+    question: "Pay on delivery?",
+    answer:
+      "Pay for the items when your parcel is delivered. Please note you must be logged in to your registered account to choose this payment method. Guest accounts will not allow Pay on Delivery.",
+  },
+  {
+    question: "UPI?",
+    answer:
+      "ShopEase guarantees that your details are completely safe with us. All information is sent encrypted to ensure total security of any sensitive information.",
+  },
+  {
+    question: "Can i cancel my order?",
+    answer: `We start processing your order quickly which means we can’t make any changes once it’s confirmed. This includes changing the delivery address or delivery option. 
+
+However, you may be able to cancel your order and place a new one instead as we have a short grace period after the order is confirmed. 
+
+Sign in to My Account and view your online orders under My Purchases. If the ‘Cancel Order’ button is visible, you can select this option and your order will be cancelled. If the button is not visible, it is too late to cancel your order as processing has begun. Should you need to, you can find out about return options instead here.`,
+  },
 ];
 const footerNavigation = {
   solutions: [
@@ -49,7 +80,7 @@ export default function AboutPage() {
         <div className="relative isolate overflow-hidden bg-gray-900 pb-16 pt-1 sm:pb-20">
           <img
             alt=""
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            src="https://img.freepik.com/free-photo/colourful-packets-decorated-leaves_23-2147955455.jpg?t=st=1736594787~exp=1736598387~hmac=ba8aff94b679ee22a5c1f7b1ef77a04b9ea4bffd2d4fd5610c44cc85d4c58842&w=996"
             className="absolute inset-0 -z-10 size-full object-cover"
           />
           <div
@@ -68,19 +99,19 @@ export default function AboutPage() {
             <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
               <div className="text-center">
                 <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-                  Data to enrich your online business
+                  ShopEase, Where Your Wishlist Comes to Life!
                 </h1>
                 <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat.
+                  Redefining convenience, one click at a time. Discover, shop,
+                  and smile! Your favorite products, just a tap away. Shop
+                  smarter, live better with ShopEase!
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
                     href="home"
-                    className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                    className="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-gray-100 shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                   >
-                    Get started
+                    Enter the new World!
                   </a>
                   {/* <a href="#" className="text-sm/6 font-semibold text-white">
                     Learn more <span aria-hidden="true">→</span>
@@ -92,36 +123,36 @@ export default function AboutPage() {
             {/* Logo cloud */}
             <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
               <img
-                alt="Transistor"
-                src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-white.svg"
+                alt="Zara"
+                src="https://1000logos.net/wp-content/uploads/2017/05/Zara-Symbol.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
               <img
-                alt="Reform"
-                src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-white.svg"
+                alt="H&M"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
               <img
-                alt="Tuple"
-                src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-white.svg"
+                alt="Prada"
+                src="https://media.designrush.com/inspirations/129357/conversions/_1513769276_486_Prada-Logo-preview.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
               <img
-                alt="SavvyCal"
-                src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-white.svg"
+                alt="Addidas"
+                src="https://i.pinimg.com/736x/6d/57/f6/6d57f6d7de64f61911cae8a6b48671ee.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               />
               <img
-                alt="Statamic"
-                src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-white.svg"
+                alt="Louis Vuitton"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWxoZ3QyKAojl6CTjbFnTVtNPiCXS-vA1iJA&s"
                 width={158}
                 height={48}
                 className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
@@ -182,11 +213,11 @@ export default function AboutPage() {
       <footer className="mt-32 bg-gray-900 sm:mt-56">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <img
-              alt="Company name"
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-              className="h-9"
-            />
+            <span class="text-4xl font-extrabold bg-clip-text text-transparent tracking-tight">
+              <span class="text-white">shop</span>
+              <span class="text-teal-400">Ease</span>
+            </span>
+
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>

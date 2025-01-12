@@ -1,6 +1,6 @@
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
-export default function Alert({ alert }) {
+export default function AuthAlert({ alert }) {
   return (
     <div className="rounded-md bg-yellow-50 p-2">
       <div className="flex items-center">

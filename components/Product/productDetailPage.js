@@ -3,6 +3,9 @@
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { useState } from "react";
+import { addToCart } from "@/actions/cart";
+import AddedAlert from "../alerts/addedAlert";
+import SignUpModal from "../alerts/signUpModal";
 
 const products = {
   name: "Basic Tee 6-Pack",
@@ -62,12 +65,31 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductDetail({ product }) {
+export default function ProductDetail({ product, id, userId }) {
+  const [added, setAdded] = useState(false);
+  const [IsOn, setOn] = useState(false);
+
+  const handleAddCart = async (event) => {
+    event.preventDefault();
+    if (userId === null) {
+      setOn(true);
+      return;
+    }
+    try {
+      await addToCart(userId, id);
+      setAdded(true);
+      console.log("added");
+    } catch (err) {
+      console.err("Failed");
+    }
+  };
+
   const [selectedColor, setSelectedColor] = useState(products.colors[0]);
   const [selectedSize, setSelectedSize] = useState(products.sizes[2]);
   return (
     <div className="bg-white">
       <div className="pt-6">
+        {added && <AddedAlert onDismiss={() => setAdded(false)} />}
         <nav aria-label="Breadcrumb">
           <ol
             role="list"
@@ -106,7 +128,7 @@ export default function ProductDetail({ product }) {
             </li>
           </ol>
         </nav>
-
+        {IsOn && <SignUpModal />}
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <img
@@ -274,6 +296,7 @@ export default function ProductDetail({ product }) {
               </div>
 
               <button
+                onClick={handleAddCart}
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
