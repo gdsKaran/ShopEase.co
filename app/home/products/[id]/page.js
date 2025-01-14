@@ -8,18 +8,16 @@ import { getProduct } from "@/actions/products";
 const ProductInfo = async ({ params }) => {
   const { id } = params;
   const result = await verifyAuth();
-
+  let userId = null;
   if (!ObjectId.isValid(id)) {
     notFound(); // Renders a 404 page
   }
   const product = await getProduct(id);
   if (result.user !== null) {
-    const userId = result.user.id;
-
-    return <ProductDetail product={product} id={id} userId={userId} />;
+    userId = result.user.id;
   }
 
-  return <ProductDetail product={product} userId={null} />;
+  return <ProductDetail product={product} id={id} userId={userId} />;
 };
 
 export default ProductInfo;

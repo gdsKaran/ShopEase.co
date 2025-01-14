@@ -1,6 +1,7 @@
 import { verifyAuth } from "@/lib/auth";
 
 import HeaderSection from "@/components/header/headerSection";
+import { getCartData } from "@/actions/cart";
 
 export const metadata = {
   title: "ShopHere App",
@@ -9,11 +10,16 @@ export const metadata = {
 
 export default async function HomeLayout({ children }) {
   const result = await verifyAuth();
-
+  let totalCount = 0;
+  if (result === null) {
+    const cartData = await getCartData(result.user.id);
+    totalCount = cartData.reduce((acc, item) => acc + (item.quantity || 0), 0);
+    console.log(totalCount);
+  }
   return (
     <html lang="en">
       <body>
-        <HeaderSection isLogin={result} />
+        <HeaderSection isLogin={result} cartCount={totalCount} />
         {children}
       </body>
     </html>

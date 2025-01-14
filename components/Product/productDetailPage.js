@@ -204,6 +204,7 @@ export default function ProductDetail({ product, id, userId }) {
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
                 <fieldset aria-label="Choose a color" className="mt-4">
+                  <h3>{product.color}</h3>
                   <RadioGroup
                     value={selectedColor}
                     onChange={setSelectedColor}

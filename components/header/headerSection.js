@@ -44,16 +44,16 @@ const navigation = {
       name: "Women",
       featured: [
         {
-          name: "New Arrivals",
-          href: "#",
+          name: "Exotic Dresses",
+          href: "http://localhost:3000/home/category/Dresses",
           imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg",
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F93%2Ff3%2F93f3d455b0702ebf8cf6a362ea2147275c53010e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
           name: "Basic Tees",
-          href: "#",
+          href: "http://localhost:3000/home/category/FemaleT-Shirts",
           imageSrc:
             "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg",
           imageAlt:
@@ -65,21 +65,21 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
+            {
+              name: "Dresses",
+              href: "http://localhost:3000/home/category/Dresses",
+            },
             { name: "Pants", href: "#" },
             { name: "Denim", href: "#" },
             { name: "Sweaters", href: "#" },
             {
               name: "T-Shirts",
-              href: "http://localhost:3000/home/category/T-Shirts",
+              href: "http://localhost:3000/home/category/FemaleT-Shirts",
             },
             {
               name: "Jackets",
               href: "http://localhost:3000/home/category/Female-Jackets",
             },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
           ],
         },
         {
@@ -94,17 +94,6 @@ const navigation = {
             { name: "Belts", href: "#" },
           ],
         },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
-          ],
-        },
       ],
     },
     {
@@ -112,16 +101,16 @@ const navigation = {
       name: "Men",
       featured: [
         {
-          name: "New Arrivals",
-          href: "#",
+          name: "Wild Jogger's",
+          href: "http://localhost:3000/home/category/Joggers",
           imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+            "https://image.hm.com/assets/hm/b5/75/b575e071f9745f4429e1b2d8d2e7d1de4654dc69.jpg?imwidth=1260",
           imageAlt:
             "Drawstring top with elastic loop closure and textured interior padding.",
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          href: "http://localhost:3000/home/category/MaleT-Shirts",
           imageSrc:
             "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -133,16 +122,16 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Tops", href: "#" },
             { name: "Pants", href: "#" },
             { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
+            {
+              name: "T-Shirts",
+              href: "http://localhost:3000/home/category/MaleT-Shirts",
+            },
             {
               name: "Jackets",
               href: "http://localhost:3000/home/category/Male-Jackets",
             },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
           ],
         },
         {
@@ -157,16 +146,6 @@ const navigation = {
             { name: "Belts", href: "#" },
           ],
         },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-          ],
-        },
       ],
     },
   ],
@@ -176,7 +155,7 @@ const navigation = {
   ],
 };
 
-export default function HeaderSection({ isLogin }) {
+export default function HeaderSection({ isLogin, cartCount }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -297,20 +276,22 @@ export default function HeaderSection({ isLogin }) {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Sign in
-                </a>
-              </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Create account
-                </a>
+                {!isLogin.user && (
+                  <a
+                    href="/authentication"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  >
+                    Sign in
+                  </a>
+                )}
+
+                {isLogin.user && (
+                  <form action={logout}>
+                    <button className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                      Logout
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
 
@@ -517,8 +498,9 @@ export default function HeaderSection({ isLogin }) {
                       aria-hidden="true"
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
+                    <span className="ml-2 text-sm font-medium text-gray-600 group-hover:text-gray-300">
+                      {cartCount > 0 && `+${cartCount}`}
+                      {cartCount === 0 && cartCount}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
