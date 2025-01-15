@@ -69,8 +69,10 @@ const navigation = {
               name: "Dresses",
               href: "http://localhost:3000/home/category/Dresses",
             },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
+            {
+              name: "Jeans",
+              href: "http://localhost:3000/home/category/Jeans",
+            },
             { name: "Sweaters", href: "#" },
             {
               name: "T-Shirts",
@@ -89,8 +91,11 @@ const navigation = {
             { name: "Watches", href: "#" },
             { name: "Wallets", href: "#" },
             { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
+            {
+              name: "Sunglasses",
+              href: "http://localhost:3000/home/category/W-Sunglasses",
+            },
+            { name: "Hats", href: "http://localhost:3000/home/category/Hats" },
             { name: "Belts", href: "#" },
           ],
         },
@@ -122,7 +127,10 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Pants", href: "#" },
+            {
+              name: "Pants",
+              href: "http://localhost:3000/home/category/Pants",
+            },
             { name: "Sweaters", href: "#" },
             {
               name: "T-Shirts",
@@ -138,11 +146,17 @@ const navigation = {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
+            {
+              name: "Watches",
+              href: "http://localhost:3000/home/category/Watches",
+            },
             { name: "Wallets", href: "#" },
             { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
+            {
+              name: "Sunglasses",
+              href: "http://localhost:3000/home/category/Sunglasses",
+            },
+            { name: "Hats", href: "http://localhost:3000/home/category/Hats" },
             { name: "Belts", href: "#" },
           ],
         },

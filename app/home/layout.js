@@ -10,11 +10,11 @@ export const metadata = {
 
 export default async function HomeLayout({ children }) {
   const result = await verifyAuth();
+
   let totalCount = 0;
-  if (result === null) {
+  if (result.user !== null) {
     const cartData = await getCartData(result.user.id);
     totalCount = cartData.reduce((acc, item) => acc + (item.quantity || 0), 0);
-    console.log(totalCount);
   }
   return (
     <html lang="en">
