@@ -20,3 +20,18 @@ export async function getProduct(id) {
 
   return serializedProduct;
 }
+
+export async function getProducts() {
+  try {
+    const db = await connectToDatabase();
+    const col = db.collection("Products");
+
+    const query = {};
+    const products = await col.find(query).toArray();
+
+    return products;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw new Error("Unable to fetch products");
+  }
+}

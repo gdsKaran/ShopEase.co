@@ -50,14 +50,25 @@ const products = {
   ],
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
-  highlights: [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton",
+  highlights1: [
+    "Expert Craftsmanship: Each product is meticulously hand-crafted to ensure precision and quality.",
+    "Unique Colors: Colored using proprietary dyes for a vibrant and exclusive finish.",
+    "Ready-to-Wear: Pre-washed and pre-shrunk for perfect fit and zero surprises after washing.",
+    "Premium Materials: Made from ultra-soft, high-quality materials for maximum comfort.",
   ],
-  details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+  highlights2: [
+    "Timeless Design: Crafted with elegance and functionality to suit any occasion.",
+    "Premium Materials: Built with high-grade materials like stainless steel, acetate, or titanium for durability and style.",
+    "Precision Engineering: Designed with cutting-edge technology for exceptional performance.",
+    "Comfortable Fit: Lightweight and ergonomically designed for all-day wear.",
+    "Water-Resistant : Built to withstand daily wear and water exposure for added reliability.",
+    "Eco-Conscious Craftsmanship: Made using sustainable and responsibly sourced materials.",
+  ],
+  details: [
+    "Product Variants: This set includes multiple color options, such as classic neutrals and trending limited-edition shades.",
+    "Sustainably Made: Designed with eco-friendly materials and processes for guilt-free enjoyment.",
+    "Customizable Options: Available in multiple sizes, fits, and finishes to suit your unique style.",
+  ],
 };
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
@@ -83,6 +94,12 @@ export default function ProductDetail({ product, id, userId }) {
       console.err("Failed");
     }
   };
+  let highlights;
+  if (product.category === "Watches" || product.category === "Sunglasses") {
+    highlights = products.highlights2;
+  } else {
+    highlights = products.highlights1;
+  }
 
   const [selectedColor, setSelectedColor] = useState(products.colors[0]);
   const [selectedSize, setSelectedSize] = useState(products.sizes[2]);
@@ -213,7 +230,7 @@ export default function ProductDetail({ product, id, userId }) {
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-gray-900">Size</h3>
                   <a
-                    href="#"
+                    href="https://assets.ctfassets.net/tacg73mas1jx/6imj61li0hOBDlH0pZlS1B/5339332af8d73e2cd957d36f991b4544/size-guide.pdf"
                     className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     Size guide
@@ -296,7 +313,7 @@ export default function ProductDetail({ product, id, userId }) {
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                  {products.highlights.map((highlight) => (
+                  {highlights.map((highlight) => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>
                     </li>
@@ -309,7 +326,13 @@ export default function ProductDetail({ product, id, userId }) {
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
               <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">{products.details}</p>
+                <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                  {products.details.map((details) => (
+                    <li key={details} className="text-gray-400">
+                      <span className="text-gray-600">{details}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

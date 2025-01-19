@@ -103,3 +103,29 @@ export async function removeProductFromCart(userId, productId) {
     return { success: false, message: error.message };
   }
 }
+
+export async function placeOrder(userId) {
+  try {
+    const db = await connectToDatabase();
+    const collection = db.collection("cart");
+
+    // Clear the user's cart
+    const result = await collection.updateOne(
+      { userId },
+      { $set: { products: [] } } // Set the products array to empty
+    );
+
+    if (result.modifiedCount > 0) {
+      console.log("Order placed successfully! Cart cleared.");
+
+      // Return a success response to trigger client-side actions
+      return { success: true, message: "Order placed successfully!" };
+    } else {
+      console.log("No cart found for the user.");
+      return { success: false, message: "No cart found for the user." };
+    }
+  } catch (error) {
+    console.error("Error placing order:", error.message);
+    return { success: false, message: error.message };
+  }
+}

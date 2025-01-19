@@ -1,38 +1,11 @@
 "use client";
-import { removeProductFromCart } from "@/actions/cart";
+import { placeOrder, removeProductFromCart } from "@/actions/cart";
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const products = [
-  {
-    id: 1,
-    name: "Artwork Tee",
-    href: "#",
-    price: "$32.00",
-    color: "Mint",
-    size: "Medium",
-    inStock: true,
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/checkout-page-03-product-04.jpg",
-    imageAlt: "Front side of mint cotton t-shirt with wavey lines pattern.",
-  },
-  {
-    id: 2,
-    name: "Basic Tee",
-    href: "#",
-    price: "$32.00",
-    color: "Charcoal",
-    inStock: false,
-    leadTime: "7-8 years",
-    size: "Large",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
-    imageAlt: "Front side of charcoal cotton t-shirt.",
-  },
-  // More products...
-];
-
-export default function Cart({ cartData }) {
+export default function Cart({ cartData, userId }) {
+  const router = useRouter();
   const [cartItems, setCartItems] = useState(cartData);
 
   useEffect(() => {
@@ -47,13 +20,19 @@ export default function Cart({ cartData }) {
     );
   };
 
-  const totalPrice = cartItems.reduce(
-    (total, product) => total + product.quantity * product.price,
-    0
-  );
+  const totalPrice = cartItems
+    .reduce((total, product) => total + product.quantity * product.price, 0)
+    .toFixed(2);
 
+  async function order(e, userId) {
+    e.preventDefault();
+    const result = await placeOrder(userId);
+    if (result.success) {
+      router.push("/home");
+    }
+  }
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen ">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
         <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {cartItems.length === 0 && "Your Cart is Empty"}{" "}
@@ -163,9 +142,10 @@ export default function Cart({ cartData }) {
               <div className="mt-10">
                 <button
                   type="submit"
+                  onClick={(e) => order(e, userId)}
                   className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
-                  Checkout
+                  Order Now
                 </button>
               </div>
 
@@ -173,7 +153,7 @@ export default function Cart({ cartData }) {
                 <p>
                   or{" "}
                   <a
-                    href="#"
+                    href="/home"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     Continue Shopping

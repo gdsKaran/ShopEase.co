@@ -14,30 +14,30 @@
 */
 const callouts = [
   {
-    name: "Desk and Office",
-    description: "Work from home accessories",
+    name: "Walk With Style",
+    description: "Premium Hats",
     imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-01.jpg",
+      "https://plus.unsplash.com/premium_photo-1682535209719-839f625f8770?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGF0c3xlbnwwfHwwfHx8MA%3D%3D",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "http://localhost:3000/home/category/Hats",
   },
   {
-    name: "Self-Improvement",
-    description: "Journals and note-taking",
+    name: "Travel Essentials",
+    description: "Sunny Day commute essentials",
     imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-02.jpg",
+      "https://image.hm.com/assets/hm/4e/68/4e682fdf094ebbf1d81d9fe8d12dc31b7064ea19.jpg?imwidth=1260",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "#",
+    href: "http://localhost:3000/home/category/Sunglasses",
   },
   {
-    name: "Travel",
-    description: "Daily commute essentials",
+    name: "Watches",
+    description: "Premium Watches",
     imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-03.jpg",
+      "https://static.helioswatchstore.com/media/easyslide/Herbelin_1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "#",
+    href: "http://localhost:3000/home/category/Watches",
   },
 ];
 

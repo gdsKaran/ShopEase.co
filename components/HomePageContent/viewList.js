@@ -1,32 +1,6 @@
 "use client";
 
-import { fetchAllProducts } from "@/lib/fetch";
-import { useEffect, useState } from "react";
-
-const productss = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-];
-
-export default function ViewList() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function loadProducts() {
-      const productsData = await fetchAllProducts();
-      setProducts(productsData);
-    }
-    loadProducts();
-  }, []);
-
+export default function ViewList({ products }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">

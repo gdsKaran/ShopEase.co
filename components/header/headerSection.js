@@ -73,7 +73,10 @@ const navigation = {
               name: "Jeans",
               href: "http://localhost:3000/home/category/Jeans",
             },
-            { name: "Sweaters", href: "#" },
+            {
+              name: "Sweaters",
+              href: "http://localhost:3000/home/category/W-Sweater",
+            },
             {
               name: "T-Shirts",
               href: "http://localhost:3000/home/category/FemaleT-Shirts",
@@ -88,15 +91,11 @@ const navigation = {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
             {
               name: "Sunglasses",
               href: "http://localhost:3000/home/category/W-Sunglasses",
             },
             { name: "Hats", href: "http://localhost:3000/home/category/Hats" },
-            { name: "Belts", href: "#" },
           ],
         },
       ],
@@ -131,7 +130,10 @@ const navigation = {
               name: "Pants",
               href: "http://localhost:3000/home/category/Pants",
             },
-            { name: "Sweaters", href: "#" },
+            {
+              name: "Sweaters",
+              href: "http://localhost:3000/home/category/M-Sweater",
+            },
             {
               name: "T-Shirts",
               href: "http://localhost:3000/home/category/MaleT-Shirts",
@@ -147,17 +149,10 @@ const navigation = {
           name: "Accessories",
           items: [
             {
-              name: "Watches",
-              href: "http://localhost:3000/home/category/Watches",
-            },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            {
               name: "Sunglasses",
               href: "http://localhost:3000/home/category/Sunglasses",
             },
             { name: "Hats", href: "http://localhost:3000/home/category/Hats" },
-            { name: "Belts", href: "#" },
           ],
         },
       ],
