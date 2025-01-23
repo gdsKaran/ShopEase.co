@@ -1,12 +1,12 @@
 "use client";
 import { placeOrder, removeProductFromCart } from "@/actions/cart";
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import ProductPurchased from "./alerts/productPurchased";
 
 export default function Cart({ cartData, userId }) {
-  const router = useRouter();
   const [cartItems, setCartItems] = useState(cartData);
+  const [ordered, setOrder] = useState(false);
 
   useEffect(() => {
     setCartItems(cartData); // Update cartItems when cartData prop changes
@@ -28,7 +28,7 @@ export default function Cart({ cartData, userId }) {
     e.preventDefault();
     const result = await placeOrder(userId);
     if (result.success) {
-      router.push("/home");
+      setOrder(true);
     }
   }
   return (
@@ -38,7 +38,7 @@ export default function Cart({ cartData, userId }) {
           {cartItems.length === 0 && "Your Cart is Empty"}{" "}
           {cartItems.length > 0 && "Shopping Cart"}
         </h1>
-
+        {ordered && <ProductPurchased />}
         {cartItems.length > 0 && (
           <form className="mt-12">
             <section aria-labelledby="cart-heading">

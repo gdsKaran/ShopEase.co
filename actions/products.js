@@ -29,7 +29,10 @@ export async function getProducts() {
     const query = {};
     const products = await col.find(query).toArray();
 
-    return products;
+    return products.map((item) => ({
+      ...item,
+      _id: item._id.toString(), // Convert ObjectId to string
+    }));
   } catch (error) {
     console.error("Error fetching products:", error);
     throw new Error("Unable to fetch products");

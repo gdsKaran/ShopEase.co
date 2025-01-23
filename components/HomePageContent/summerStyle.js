@@ -1,3 +1,5 @@
+"use client";
+
 export default function SummerCollection() {
   return (
     <div className="relative overflow-hidden bg-white">

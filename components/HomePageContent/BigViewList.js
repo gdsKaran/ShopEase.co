@@ -20,7 +20,7 @@ export default function BigViewList({ products }) {
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
           {sweaters.map((product) => (
-            <div key={product.id} className="group relative">
+            <div key={product._id} className="group relative">
               <img
                 alt={product.imageAlt}
                 src={product.images[0]}
