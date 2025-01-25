@@ -1,46 +1,4 @@
-const products = [
-  {
-    id: 1,
-    name: "Earthen Bottle",
-    href: "#",
-    price: "$48",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-01.jpg",
-    imageAlt:
-      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-  },
-  {
-    id: 2,
-    name: "Nomad Tumbler",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-02.jpg",
-    imageAlt:
-      "Olive drab green insulated bottle with flared screw lid and flat top.",
-  },
-  {
-    id: 3,
-    name: "Focus Paper Refill",
-    href: "#",
-    price: "$89",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-03.jpg",
-    imageAlt:
-      "Person using a pen to cross a task off a productivity paper card.",
-  },
-  {
-    id: 4,
-    name: "Machined Mechanical Pencil",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-04.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
-  // More products...
-];
+import Image from "next/image";
 
 export default function SummerCollectionPage({ products }) {
   const summerCloths = products.filter((p) =>
@@ -58,7 +16,10 @@ export default function SummerCollectionPage({ products }) {
               href={`/home/products/${product._id}`}
               className="group"
             >
-              <img
+              <Image
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 alt={product.imageAlt}
                 src={product.images[0]}
                 className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"

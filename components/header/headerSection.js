@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 "use client";
 
 import { Fragment, useState } from "react";
@@ -36,6 +22,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { logout } from "@/actions/auth";
+import Image from "next/image";
 
 const navigation = {
   categories: [
@@ -217,7 +204,10 @@ export default function HeaderSection({ isLogin, cartCount }) {
                       {category.featured.map((item) => (
                         <div key={item.name} className="group relative text-sm">
                           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                            <img
+                            <Image
+                              width={0}
+                              height={0}
+                              sizes="(max-width: 768px) 100vw, 33vw"
                               alt={item.imageAlt}
                               src={item.imageSrc}
                               className="object-cover object-center"
@@ -306,7 +296,10 @@ export default function HeaderSection({ isLogin, cartCount }) {
 
             <div className="border-t border-gray-200 px-4 py-6">
               <a href="#" className="-m-2 flex items-center p-2">
-                <img
+                <Image
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   alt=""
                   src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
                   className="block h-auto w-5 flex-shrink-0"
@@ -346,7 +339,14 @@ export default function HeaderSection({ isLogin, cartCount }) {
               <div className="ml-4 flex lg:ml-0">
                 <a href="/home">
                   <span className="sr-only">Your Company</span>
-                  <img alt="" src="/images/logo.png" className="h-18 w-10" />
+                  <Image
+                    width={0}
+                    height={0}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    alt=""
+                    src="/images/logo.png"
+                    className="h-18 w-10"
+                  />
                 </a>
               </div>
 
@@ -381,7 +381,10 @@ export default function HeaderSection({ isLogin, cartCount }) {
                                     className="group relative text-base sm:text-sm"
                                   >
                                     <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                      <img
+                                      <Image
+                                        width={0}
+                                        height={0}
+                                        sizes="(max-width: 768px) 100vw, 33vw"
                                         alt={item.imageAlt}
                                         src={item.imageSrc}
                                         className="object-cover object-center"
@@ -476,7 +479,10 @@ export default function HeaderSection({ isLogin, cartCount }) {
                     href="#"
                     className="flex items-center text-gray-700 hover:text-gray-800"
                   >
-                    <img
+                    <Image
+                      width={0}
+                      height={0}
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       alt=""
                       src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
                       className="block h-auto w-5 flex-shrink-0"

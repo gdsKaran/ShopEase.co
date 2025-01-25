@@ -1,17 +1,5 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
+import Image from "next/image";
+
 const callouts = [
   {
     name: "Walk With Style",
@@ -52,7 +40,10 @@ export default function CollectionSec() {
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                  <img
+                  <Image
+                    width={0}
+                    height={0}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     alt={callout.imageAlt}
                     src={callout.imageSrc}
                     className="h-full w-full object-cover object-center"

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ProductCategoryPage({ products }) {
   return (
     <div className="bg-white">
@@ -11,7 +13,10 @@ export default function ProductCategoryPage({ products }) {
               href={`http://localhost:3000/home/products/${product._id}`}
               className="group"
             >
-              <img
+              <Image
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 alt={product.imageAlt}
                 src={product.images[0]}
                 className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"

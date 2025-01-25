@@ -3,6 +3,7 @@
 import { auth } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import AuthAlert from "../alerts/AuthAlert";
+import Image from "next/image";
 export default function AuthForm({ mode }) {
   const [formState, formAction] = useFormState(
     (prevState, formData) => auth({ mode, prevState, formData }),
@@ -10,18 +11,13 @@ export default function AuthForm({ mode }) {
   );
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
       <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-sm space-y-10">
           <div>
-            <img
+            <Image
+              width={0}
+              height={0}
+              sizes="(max-width: 768px) 100vw, 33vw"
               alt="Sign Up"
               src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/lock_secure_security_password_private_key-512.png"
               className="mx-auto h-10 w-auto"

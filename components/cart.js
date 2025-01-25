@@ -3,6 +3,7 @@ import { placeOrder, removeProductFromCart } from "@/actions/cart";
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 import ProductPurchased from "./alerts/productPurchased";
+import Image from "next/image";
 
 export default function Cart({ cartData, userId }) {
   const [cartItems, setCartItems] = useState(cartData);
@@ -53,7 +54,10 @@ export default function Cart({ cartData, userId }) {
                 {cartItems.map((product) => (
                   <li key={product._id} className="flex py-6">
                     <div className="shrink-0">
-                      <img
+                      <Image
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         alt={product.imageAlt}
                         src={product.images[0]}
                         className="size-24 rounded-md object-cover sm:size-32"

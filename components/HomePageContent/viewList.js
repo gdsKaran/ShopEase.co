@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function ViewList({ products }) {
   return (
     <div className="bg-white">
@@ -21,8 +23,11 @@ export default function ViewList({ products }) {
                 className="flex-shrink-0 w-64 group relative"
               >
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  <img
-                    alt={product.imageAlt}
+                  <Image
+                    height={0}
+                    width={0}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    alt={product.name}
                     src={product.images[0]}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />

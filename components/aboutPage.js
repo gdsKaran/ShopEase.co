@@ -6,6 +6,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -78,7 +79,7 @@ export default function AboutPage() {
       <main>
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 pb-16 pt-1 sm:pb-20">
-          <img
+          <Image
             alt=""
             src="https://img.freepik.com/free-photo/colourful-packets-decorated-leaves_23-2147955455.jpg?t=st=1736594787~exp=1736598387~hmac=ba8aff94b679ee22a5c1f7b1ef77a04b9ea4bffd2d4fd5610c44cc85d4c58842&w=996"
             className="absolute inset-0 -z-10 size-full object-cover"
@@ -122,35 +123,35 @@ export default function AboutPage() {
 
             {/* Logo cloud */}
             <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-              <img
+              <Image
                 alt="Zara"
                 src="https://1000logos.net/wp-content/uploads/2017/05/Zara-Symbol.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
-              <img
+              <Image
                 alt="H&M"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
-              <img
+              <Image
                 alt="Prada"
                 src="https://media.designrush.com/inspirations/129357/conversions/_1513769276_486_Prada-Logo-preview.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
-              <img
+              <Image
                 alt="Addidas"
                 src="https://i.pinimg.com/736x/6d/57/f6/6d57f6d7de64f61911cae8a6b48671ee.jpg"
                 width={158}
                 height={48}
                 className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               />
-              <img
+              <Image
                 alt="Louis Vuitton"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWxoZ3QyKAojl6CTjbFnTVtNPiCXS-vA1iJA&s"
                 width={158}

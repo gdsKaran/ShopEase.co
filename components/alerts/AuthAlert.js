@@ -8,7 +8,7 @@ export default function AuthAlert({ alert }) {
         <div className="shrink-0">
           <ExclamationTriangleIcon
             aria-hidden="true"
-            className="h-5 w-5 text-yellow-400" // Adjusted size classes for the icon
+            className="h-5 w-5 text-yellow-400"
           />
         </div>
 
