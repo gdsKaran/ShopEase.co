@@ -1,4 +1,4 @@
-import { getCartData, removeProductFromCart } from "@/actions/cart";
+import { getCartData } from "@/actions/cart";
 import Cart from "@/components/cart";
 import { verifyAuth } from "@/lib/auth";
 
