@@ -80,6 +80,9 @@ export default function AboutPage() {
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 pb-16 pt-1 sm:pb-20">
           <Image
+            height={0}
+            width={0}
+            sizes="(max-width: 768px) 100vw, 33vw"
             alt=""
             src="https://img.freepik.com/free-photo/colourful-packets-decorated-leaves_23-2147955455.jpg?t=st=1736594787~exp=1736598387~hmac=ba8aff94b679ee22a5c1f7b1ef77a04b9ea4bffd2d4fd5610c44cc85d4c58842&w=996"
             className="absolute inset-0 -z-10 size-full object-cover"
@@ -214,9 +217,9 @@ export default function AboutPage() {
       <footer className="mt-32 bg-gray-900 sm:mt-56">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <span class="text-4xl font-extrabold bg-clip-text text-transparent tracking-tight">
-              <span class="text-white">shop</span>
-              <span class="text-teal-400">Ease</span>
+            <span className="text-4xl font-extrabold bg-clip-text text-transparent tracking-tight">
+              <span className="text-white">shop</span>
+              <span className="text-teal-400">Ease</span>
             </span>
 
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">

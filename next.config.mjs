@@ -1,20 +1,88 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "tailwindui.com",
-      "thehouseofrare.com",
-      "assets.adidas.com",
-      "static.nike.com",
-      "lp2.hm.com",
-      "1000logos.net",
-      "upload.wikimedia.org",
-      "media.designrush.com",
-      "encrypted-tbn0.gstatic.com",
-      "plus.unsplash.com",
-      "image.hm.com",
-      "static.helioswatchstore.com",
-    ], // Add allowed external domains here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tailwindui.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "thehouseofrare.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.adidas.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "static.nike.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lp2.hm.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "1000logos.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.designrush.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "image.hm.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "static.helioswatchstore.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn3.iconfinder.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

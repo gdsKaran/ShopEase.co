@@ -42,9 +42,10 @@ export default function ProductPurchased() {
                 </DialogTitle>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Great news! Your order has been successfully placed. We're
-                    now processing it and will send you a confirmation email
-                    with tracking details as soon as it's shipped.
+                    Great news! Your order has been successfully placed.
+                    We&apos;re now processing it and will send you a
+                    confirmation email with tracking details as soon as
+                    it&apos;s shipped.
                   </p>
                 </div>
               </div>
