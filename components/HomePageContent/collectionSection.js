@@ -8,7 +8,7 @@ const callouts = [
       "https://plus.unsplash.com/premium_photo-1682535209719-839f625f8770?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGF0c3xlbnwwfHwwfHx8MA%3D%3D",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "category/Hats",
+    href: "home/category/Hats",
   },
   {
     name: "Travel Essentials",
@@ -17,7 +17,7 @@ const callouts = [
       "https://image.hm.com/assets/hm/4e/68/4e682fdf094ebbf1d81d9fe8d12dc31b7064ea19.jpg?imwidth=1260",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "category/Sunglasses",
+    href: "/category/Sunglasses",
   },
   {
     name: "Watches",
@@ -25,7 +25,7 @@ const callouts = [
     imageSrc:
       "https://static.helioswatchstore.com/media/easyslide/Herbelin_1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "category/Watches",
+    href: "/category/Watches",
   },
 ];
 
