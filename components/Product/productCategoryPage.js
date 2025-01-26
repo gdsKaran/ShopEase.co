@@ -10,7 +10,7 @@ export default function ProductCategoryPage({ products }) {
           {products.map((product) => (
             <a
               key={product._id}
-              href={`home/products/${product._id}`}
+              href={`products/${product._id}`}
               className="group"
             >
               <Image
