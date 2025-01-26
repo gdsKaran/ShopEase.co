@@ -10,7 +10,7 @@ export default function BigViewList2({ products }) {
             Classic Men&apos;s Pants
           </h2>
           <a
-            href="category/Pants"
+            href="/home/category/Pants"
             className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
             Browse all favorites
@@ -30,7 +30,7 @@ export default function BigViewList2({ products }) {
                 className="h-96 w-full rounded-lg object-cover group-hover:opacity-75 sm:aspect-[2/3] sm:h-auto"
               />
               <h3 className="mt-4 text-base font-semibold text-gray-900">
-                <a href="http://localhost:3000/home/category/Pants">
+                <a href="/home/category/Pants">
                   <span className="absolute inset-0" />
                   {product.name}
                 </a>
@@ -42,7 +42,7 @@ export default function BigViewList2({ products }) {
 
         <div className="mt-6 sm:hidden">
           <a
-            href="http://localhost:3000/home/category/Pants"
+            href="/home/category/Pants"
             className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
           >
             Browse all favorites

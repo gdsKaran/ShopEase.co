@@ -32,7 +32,7 @@ const navigation = {
       featured: [
         {
           name: "Exotic Dresses",
-          href: "home/category/Dresses",
+          href: "/home/category/Dresses",
           imageSrc:
             "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F93%2Ff3%2F93f3d455b0702ebf8cf6a362ea2147275c53010e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
           imageAlt:
@@ -40,7 +40,7 @@ const navigation = {
         },
         {
           name: "Basic Tees",
-          href: "home/category/FemaleT-Shirts",
+          href: "/home/category/FemaleT-Shirts",
           imageSrc:
             "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg",
           imageAlt:
@@ -54,23 +54,23 @@ const navigation = {
           items: [
             {
               name: "Dresses",
-              href: "home/category/Dresses",
+              href: "/home/category/Dresses",
             },
             {
               name: "Jeans",
-              href: "home/category/Jeans",
+              href: "/home/category/Jeans",
             },
             {
               name: "Sweaters",
-              href: "home/category/W-Sweater",
+              href: "/home/category/W-Sweater",
             },
             {
               name: "T-Shirts",
-              href: "home/category/FemaleT-Shirts",
+              href: "/home/category/FemaleT-Shirts",
             },
             {
               name: "Jackets",
-              href: "home/category/Female-Jackets",
+              href: "/home/category/Female-Jackets",
             },
           ],
         },
@@ -80,9 +80,9 @@ const navigation = {
           items: [
             {
               name: "Sunglasses",
-              href: "home/category/W-Sunglasses",
+              href: "/home/category/W-Sunglasses",
             },
-            { name: "Hats", href: "home/category/Hats" },
+            { name: "Hats", href: "/home/category/Hats" },
           ],
         },
       ],
@@ -93,7 +93,7 @@ const navigation = {
       featured: [
         {
           name: "Wild Jogger's",
-          href: "home/category/Joggers",
+          href: "/home/category/Joggers",
           imageSrc:
             "https://image.hm.com/assets/hm/b5/75/b575e071f9745f4429e1b2d8d2e7d1de4654dc69.jpg?imwidth=1260",
           imageAlt:
@@ -101,7 +101,7 @@ const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "home/category/MaleT-Shirts",
+          href: "/home/category/MaleT-Shirts",
           imageSrc:
             "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -115,19 +115,19 @@ const navigation = {
           items: [
             {
               name: "Pants",
-              href: "home/category/Pants",
+              href: "/home/category/Pants",
             },
             {
               name: "Sweaters",
-              href: "home/category/M-Sweater",
+              href: "/home/category/M-Sweater",
             },
             {
               name: "T-Shirts",
-              href: "home/category/MaleT-Shirts",
+              href: "/home/category/MaleT-Shirts",
             },
             {
               name: "Jackets",
-              href: "home/category/Male-Jackets",
+              href: "/home/category/Male-Jackets",
             },
           ],
         },
@@ -137,9 +137,9 @@ const navigation = {
           items: [
             {
               name: "Sunglasses",
-              href: "home/category/Sunglasses",
+              href: "/home/category/Sunglasses",
             },
-            { name: "Hats", href: "home/category/Hats" },
+            { name: "Hats", href: "/home/category/Hats" },
           ],
         },
       ],

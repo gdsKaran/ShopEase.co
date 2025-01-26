@@ -68,7 +68,7 @@ export default function BentoGrids() {
                   Security
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing
+                  Morbie viverra dui mi arcu sed. Tellus semper adipiscing
                   suspendisse semper morbi.
                 </p>
               </div>
