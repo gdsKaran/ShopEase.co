@@ -10,7 +10,7 @@ export default function BigViewList2({ products }) {
             Classic Men&apos;s Pants
           </h2>
           <a
-            href="http://localhost:3000/home/category/Pants"
+            href="category/Pants"
             className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
             Browse all favorites

@@ -12,7 +12,7 @@ export default function BigViewList({ products }) {
             Elevate Your Winter Closet
           </h2>
           <a
-            href="http://localhost:3000/home/category/W-Sweater"
+            href="category/W-Sweater"
             className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
             Browse all favorites
