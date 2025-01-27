@@ -27,7 +27,7 @@ export default function BigViewList({ products }) {
                 width={0}
                 height={0}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                alt={product.imageAlt}
+                alt={product.name}
                 src={product.images[0]}
                 className="h-96 w-full rounded-lg object-cover group-hover:opacity-75 sm:aspect-[2/3] sm:h-auto"
               />
