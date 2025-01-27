@@ -17,11 +17,9 @@ export default async function HomeLayout({ children }) {
     totalCount = cartData.reduce((acc, item) => acc + (item.quantity || 0), 0);
   }
   return (
-    <html lang="en">
-      <body>
-        <HeaderSection isLogin={result} cartCount={totalCount} />
-        {children}
-      </body>
-    </html>
+    <body>
+      <HeaderSection isLogin={result} cartCount={totalCount} />
+      {children}
+    </body>
   );
 }

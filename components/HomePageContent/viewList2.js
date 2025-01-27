@@ -24,7 +24,7 @@ export default function ViewList2({ products }) {
                     height={0}
                     width={0}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    alt={product.imageAlt}
+                    alt={product.name}
                     src={product.images[0]}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
