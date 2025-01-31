@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import FAQComponent from "./faqs";
+
 import {
   Disclosure,
   DisclosureButton,
