@@ -1,32 +1,42 @@
 "use client";
 
+import Image from "next/image";
+import FAQComponent from "./faqs";
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  Transition,
 } from "@headlessui/react";
-import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
+import { PlusSmallIcon, MinusSmallIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 const faqs = [
   {
     question: "What's makes us different from others?",
-    answer:
-      "Geniune products at geniune price with great customer statisfaction rate.",
+    answer: `Genuine products at genuine prices with a great customer satisfaction rate. 
+    We ensure a seamless shopping experience with secure payments and fast delivery.
+    Our wide range of products is carefully curated for quality and affordability.
+    Dedicated customer support is always available to assist you.
+    Shop with confidence and enjoy hassle-free returns!
+    With exclusive deals and exciting discounts,
+    we make shopping more rewarding.
+    Experience the difference with our user-friendly interface and personalized recommendations!`,
   },
   {
     question: "Getting problems on return or refund?",
     answer:
-      "Worry not, our team will resolve the problem as fast as can. And will reach you as quickly.",
+      "Worry not, our team will resolve the problem as fast as can and will reach you as quickly. If your concern is regarding a return or refund, rest assured that we will review your request promptly. Our team ensures a smooth process, keeping you updated at every step. Please provide the necessary details so we can assist you efficiently",
   },
   {
     question: "Want to know where your order is?",
-    answer: "Enter the order number to get the order track details.",
+    answer:
+      "To track your order, simply enter the order number below to get real-time updates on its status and location. We’ll keep you informed every step of the way. You will receive notifications whenever there is an update on your delivery, ensuring you never miss any important details. If you have any questions along the way, our support team is just a click away to assist you further.",
   },
   {
     question: "Card payment?",
     answer:
-      "We accept cards with Mastercard, Visa or Rupay symbol. EMI option is also available with the selected cards.",
+      "We accept cards with Mastercard, Visa, or Rupay symbols. EMI options are also available for selected cards, making your payments more flexible. Feel free to choose the payment method that best suits your convenience.",
   },
   {
     question: "Pay on delivery?",
@@ -74,6 +84,8 @@ const footerNavigation = {
 };
 
 export default function AboutPage() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <div className="bg-white">
       <main>
@@ -131,7 +143,7 @@ export default function AboutPage() {
                 src="https://1000logos.net/wp-content/uploads/2017/05/Zara-Symbol.jpg"
                 width={158}
                 height={48}
-                className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                className=" col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               />
               <Image
                 alt="H&M"
@@ -181,13 +193,23 @@ export default function AboutPage() {
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
           <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Frequently asked questions
+              Frequently Asked Questions
             </h2>
             <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-              {faqs.map((faq) => (
-                <Disclosure key={faq.question} as="div" className="pt-6">
+              {faqs.map((faq, index) => (
+                <Disclosure
+                  key={faq.question}
+                  as="div"
+                  className="pt-6 "
+                  open={openIndex === index ? true : false}
+                >
                   <dt>
-                    <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
+                    <DisclosureButton
+                      className="group flex w-full items-start justify-between text-left text-gray-900"
+                      onClick={() =>
+                        setOpenIndex(openIndex === index ? null : index)
+                      }
+                    >
                       <span className="text-base/7 font-semibold">
                         {faq.question}
                       </span>
@@ -203,9 +225,18 @@ export default function AboutPage() {
                       </span>
                     </DisclosureButton>
                   </dt>
-                  <DisclosurePanel as="dd" className="mt-2 pr-12">
-                    <p className="text-base/7 text-gray-600">{faq.answer}</p>
-                  </DisclosurePanel>
+                  <Transition
+                    enter="transition-[max-height] duration-700 ease-out"
+                    enterFrom="max-h-0 overflow-hidden"
+                    enterTo="max-h-40 overflow-hidden"
+                    leave="transition-[max-height] duration-300 ease-in"
+                    leaveFrom="max-h-40 overflow-hidden"
+                    leaveTo="max-h-0 overflow-hidden"
+                  >
+                    <DisclosurePanel as="dd" className="mt-2 pr-12">
+                      <p className="text-base/7 text-gray-600">{faq.answer}</p>
+                    </DisclosurePanel>
+                  </Transition>
                 </Disclosure>
               ))}
             </dl>
