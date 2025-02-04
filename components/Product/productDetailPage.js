@@ -90,7 +90,6 @@ export default function ProductDetail({ product, id, userId }) {
     try {
       await addToCart(userId, id);
       setAdded(true);
-      console.log("added");
     } catch (err) {
       console.err("Failed");
     }

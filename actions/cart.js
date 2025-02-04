@@ -38,8 +38,6 @@ export async function addToCart(userId, productId, quantity = 1) {
 
       await collection.insertOne(newCart);
     }
-
-    console.log("Product added to cart successfully!");
   } catch (error) {
     console.error("Error adding product to cart:", error.message);
   }
@@ -92,14 +90,11 @@ export async function removeProductFromCart(userId, productId) {
     );
 
     if (result.modifiedCount > 0) {
-      console.log("Product removed successfully!");
       return { success: true, message: "Product removed from cart" };
     } else {
-      console.log("Product not found or cart does not exist");
       return { success: false, message: "Product not found in cart" };
     }
   } catch (error) {
-    console.error("Error removing product from cart:", error.message);
     return { success: false, message: error.message };
   }
 }
@@ -116,12 +111,9 @@ export async function placeOrder(userId) {
     );
 
     if (result.modifiedCount > 0) {
-      console.log("Order placed successfully! Cart cleared.");
-
       // Return a success response to trigger client-side actions
       return { success: true, message: "Order placed successfully!" };
     } else {
-      console.log("No cart found for the user.");
       return { success: false, message: "No cart found for the user." };
     }
   } catch (error) {
