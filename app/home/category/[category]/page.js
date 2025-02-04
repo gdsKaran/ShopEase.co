@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 export default async function ProductCategory({ params }) {
   const { category } = params;
-  console.log(category);
+
   try {
     // Connect to the database
     const db = await connectToDatabase();

@@ -71,7 +71,6 @@ export async function Login(prevState, formData) {
 }
 
 export async function auth({ mode, prevState, formData }) {
-  console.log(mode);
   if (mode === "signin") {
     return Login(prevState, formData);
   }
