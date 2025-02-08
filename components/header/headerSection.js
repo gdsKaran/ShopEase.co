@@ -301,7 +301,7 @@ export default function HeaderSection({ isLogin, cartCount }) {
                   height={0}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   alt=""
-                  src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
+                  src="https://tailwindui.com/plus-assets/img/flags/flag-canada.svg"
                   className="block h-auto w-5 flex-shrink-0"
                 />
                 <span className="ml-3 block text-base font-medium text-gray-900">
