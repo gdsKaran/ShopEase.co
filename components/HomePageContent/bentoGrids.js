@@ -53,7 +53,7 @@ export default function BentoGrids() {
                   height={0}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full max-lg:max-w-xs"
-                  src="https://tailwindui.com/plus/img/component-images/bento-03-performance.png"
+                  src="https://tailwindui.com/plus-assets/img/component-images/bento-03-performance.png"
                   alt=""
                 />
               </div>
@@ -74,11 +74,10 @@ export default function BentoGrids() {
               </div>
               <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2">
                 <Image
-                  width={0}
-                  height={0}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  width={700}
+                  height={700}
                   className="h-[min(152px,40cqw)] object-cover object-center"
-                  src="https://tailwindui.com/plus/img/component-images/bento-03-security.png"
+                  src="https://tailwindui.com/plus-assets/img/component-images/bento-03-security.png"
                   alt=""
                 />
               </div>

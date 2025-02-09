@@ -365,7 +365,6 @@ export default function HeaderSection({ isLogin, cartCount }) {
                         transition
                         className="absolute inset-x-0 top-full text-sm text-gray-500 transition data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                       >
-                        {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                         <div
                           aria-hidden="true"
                           className="absolute inset-0 top-1/2 bg-white shadow"
@@ -484,7 +483,7 @@ export default function HeaderSection({ isLogin, cartCount }) {
                       height={0}
                       sizes="(max-width: 768px) 100vw, 33vw"
                       alt=""
-                      src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
+                      src="https://tailwindui.com/plus-assets/img/flags/flag-canada.svg"
                       className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-sm font-medium">CAD</span>
