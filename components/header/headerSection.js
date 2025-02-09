@@ -42,7 +42,7 @@ const navigation = {
           name: "Basic Tees",
           href: "/home/category/FemaleT-Shirts",
           imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg",
+            "https://tailwindui.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
@@ -103,7 +103,7 @@ const navigation = {
           name: "Artwork Tees",
           href: "/home/category/MaleT-Shirts",
           imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
+            "https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
             "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
         },
