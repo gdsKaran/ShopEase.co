@@ -27,11 +27,11 @@ export async function Signup(prevState, formData) {
 
   const hashedPassword = hashUserPassword(password);
   try {
-    const id = createUser(email, hashedPassword);
+    const id = await createUser(email, hashedPassword);
     await createAuthSession(id);
     redirect("/home");
   } catch (err) {
-    if (err.code === "SQLITE_CONSTRAINT_UNIQUE") {
+    if (err.code === "23505") {
       return {
         errors: {
           email: "This email already exists!",
@@ -46,7 +46,7 @@ export async function Login(prevState, formData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  const existingUser = getUserByEmail(email);
+  const existingUser = await getUserByEmail(email);
 
   if (!existingUser) {
     return {
