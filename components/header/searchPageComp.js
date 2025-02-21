@@ -40,7 +40,10 @@ export default function SearchPageComp({ products }) {
                   href={`/home/products/${product._id}`}
                   className="group"
                 >
-                  <img
+                  <Image
+                    height={0}
+                    width={0}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     alt={product.name}
                     src={product.images[0]}
                     className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
