@@ -13,8 +13,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/aspect-ratio"), require("daisyui")],
-  daisyui: {
-    themes: ["light", "dark", "cupcake"], // Customize themes if needed
-  },
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

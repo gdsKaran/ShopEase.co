@@ -31,7 +31,7 @@ export default function SearchPageComp({ products }) {
       <div className="bg-white  min-h-screen">
         {loading ? (
           <div className="flex justify-center items-center min-h-[40vh] pt-16">
-            <span className="loading loading-bars loading-md"></span>
+            <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
           </div>
         ) : filteredProducts.length > 0 ? (
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
