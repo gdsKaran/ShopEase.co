@@ -16,8 +16,10 @@ export default function SearchPageComp({ products }) {
       setFilteredProducts(
         products.filter(
           (product) =>
-            product.name.toLowerCase().includes(query.toLowerCase()) ||
-            product.category.toLowerCase().includes(query.toLowerCase())
+            (product.name.toLowerCase().includes(query.toLowerCase()) &&
+              Array.isArray(product.images)) ||
+            (product.category.toLowerCase().includes(query.toLowerCase()) &&
+              Array.isArray(product.images))
         )
       );
       setLoading(false);
@@ -70,3 +72,5 @@ export default function SearchPageComp({ products }) {
     </>
   );
 }
+
+// loader is n't working do this after comin home!!
