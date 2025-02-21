@@ -23,6 +23,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { logout } from "@/actions/auth";
 import Image from "next/image";
+import SearchBar from "./searchBar";
 
 const navigation = {
   categories: [
@@ -349,7 +350,6 @@ export default function HeaderSection({ isLogin, cartCount }) {
                   />
                 </a>
               </div>
-
               {/* Flyout menus */}
               <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
@@ -451,6 +451,8 @@ export default function HeaderSection({ isLogin, cartCount }) {
                   ))}
                 </div>
               </PopoverGroup>
+              {/* Search */}
+              <SearchBar />
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -490,17 +492,6 @@ export default function HeaderSection({ isLogin, cartCount }) {
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>
-
-                {/* Search */}
-                {/* <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
-                      aria-hidden="true"
-                      className="h-6 w-6"
-                    />
-                  </a>
-                </div> */}
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
