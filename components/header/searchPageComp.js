@@ -13,16 +13,18 @@ export default function SearchPageComp({ products }) {
   useEffect(() => {
     if (query.length) {
       setLoading(true);
-      setFilteredProducts(
-        products.filter(
-          (product) =>
-            (product.name.toLowerCase().includes(query.toLowerCase()) &&
-              Array.isArray(product.images)) ||
-            (product.category.toLowerCase().includes(query.toLowerCase()) &&
-              Array.isArray(product.images))
-        )
-      );
-      setLoading(false);
+      setTimeout(() => {
+        setFilteredProducts(
+          products.filter(
+            (product) =>
+              (product.name.toLowerCase().includes(query.toLowerCase()) &&
+                Array.isArray(product.images)) ||
+              (product.category.toLowerCase().includes(query.toLowerCase()) &&
+                Array.isArray(product.images))
+          )
+        );
+        setLoading(false);
+      }, 1000);
     }
   }, [query, products]);
 
