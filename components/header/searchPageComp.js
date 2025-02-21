@@ -61,7 +61,7 @@ export default function SearchPageComp({ products }) {
           <div className="bg-white min-h-[50vh] flex items-center justify-center">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
               <h2 className="text-3xl font-semibold text-gray-750">
-                We couldn't find any matches!
+                We couldn&apos;t find any matches!
               </h2>
             </div>
           </div>
