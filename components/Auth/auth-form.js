@@ -4,11 +4,15 @@ import { auth } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import AuthAlert from "../alerts/AuthAlert";
 import Image from "next/image";
+import { useState } from "react";
 export default function AuthForm({ mode }) {
-  const [formState, formAction] = useFormState(
-    (prevState, formData) => auth({ mode, prevState, formData }),
-    {}
-  );
+  const [loading, setLoading] = useState(false);
+  const [formState, formAction] = useFormState(async (prevState, formData) => {
+    setLoading(true);
+    const response = await auth({ mode, prevState, formData });
+    setLoading(false);
+    return response;
+  }, {});
   return (
     <>
       <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
@@ -126,36 +130,14 @@ export default function AuthForm({ mode }) {
             <div>
               <button
                 type="submit"
-                disabled={formState.pending}
+                disabled={loading}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                {formState.pending ? (
-                  // A simple spinner (using Tailwind CSS animation)
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                    ></path>
-                  </svg>
-                ) : mode === "signin" ? (
-                  "Sign in"
-                ) : (
-                  "Create Account"
-                )}
+                {loading
+                  ? "Processing..."
+                  : mode === "signin"
+                  ? "Sign in"
+                  : "Create Account"}
               </button>
             </div>
           </form>
