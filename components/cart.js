@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { placeOrder, removeProductFromCart } from "@/actions/cart";
 
 export default function Cart({ cartData, userId }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [cartItems, setCartItems] = useState(cartData);
   const [ordered, setOrder] = useState(false);
 
@@ -55,9 +56,11 @@ export default function Cart({ cartData, userId }) {
 
   async function order(e, userId) {
     e.preventDefault();
+    setIsLoading(true);
     const result = await placeOrder(userId);
     if (result.success) {
       setOrder(true);
+      setIsLoading(false);
     }
   }
 
@@ -261,10 +264,11 @@ export default function Cart({ cartData, userId }) {
               <div className="mt-6">
                 <button
                   type="submit"
+                  disabled={isLoading}
                   onClick={(e) => order(e, userId)}
                   className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
-                  Order Now
+                  {isLoading ? "Fetching Order..." : " Order Now"}
                 </button>
               </div>
             </section>

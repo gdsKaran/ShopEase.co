@@ -7,7 +7,6 @@ import { addToCart } from "@/actions/cart";
 import AddedAlert from "../alerts/addedAlert";
 import SignUpModal from "../alerts/signUpModal";
 import Image from "next/image";
-import { useFormStatus } from "react-dom";
 
 const products = {
   name: "Basic Tee 6-Pack",
@@ -79,6 +78,7 @@ function classNames(...classes) {
 }
 
 export default function ProductDetail({ product, id, userId }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [added, setAdded] = useState(false);
   const [IsOn, setOn] = useState(false);
 
@@ -86,16 +86,18 @@ export default function ProductDetail({ product, id, userId }) {
     event.preventDefault();
     if (userId === null) {
       setOn(true);
+
       return;
     }
+    setIsLoading(true);
     try {
       await addToCart(userId, id);
       setAdded(true);
     } catch (err) {
       console.err("Failed");
     }
+    setIsLoading(false);
   };
-
   let highlights;
   if (product.category === "Watches" || product.category === "Sunglasses") {
     highlights = products.highlights2;
@@ -302,7 +304,14 @@ export default function ProductDetail({ product, id, userId }) {
                 </fieldset>
               </div>
 
-              <AddCartBtn handleAddCart={handleAddCart} />
+              <button
+                onClick={handleAddCart}
+                disabled={isLoading}
+                type="submit"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                {isLoading ? "Adding..." : "Add to bag"}
+              </button>
             </form>
           </div>
 
@@ -347,39 +356,5 @@ export default function ProductDetail({ product, id, userId }) {
         </div>
       </div>
     </div>
-  );
-}
-
-function AddCartBtn({ handleAddCart }) {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      onClick={handleAddCart}
-      type="submit"
-      className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-    >
-      {pending ? (
-        <svg
-          className="animate-spin h-5 w-5 text-cyan-400 drop-shadow-md"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            className="opacity-25 stroke-cyan-300"
-            cx="12"
-            cy="12"
-            r="10"
-            strokeWidth="4"
-          ></circle>
-          <path
-            className="opacity-75 fill-cyan-700"
-            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-          ></path>
-        </svg>
-      ) : (
-        "Add to bag"
-      )}
-    </button>
   );
 }
