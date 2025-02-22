@@ -4,15 +4,13 @@ import { auth } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import AuthAlert from "../alerts/AuthAlert";
 import Image from "next/image";
-import { useState } from "react";
+import { useFormStatus } from "react-dom";
+
 export default function AuthForm({ mode }) {
-  const [loading, setLoading] = useState(false);
-  const [formState, formAction] = useFormState(async (prevState, formData) => {
-    setLoading(true);
-    const response = await auth({ mode, prevState, formData });
-    setLoading(false);
-    return response;
-  }, {});
+  const [formState, formAction] = useFormState(
+    (prevState, formData) => auth({ mode, prevState, formData }),
+    {}
+  );
   return (
     <>
       <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
@@ -128,21 +126,48 @@ export default function AuthForm({ mode }) {
             </div>
 
             <div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                {loading
-                  ? "Processing..."
-                  : mode === "signin"
-                  ? "Sign in"
-                  : "Create Account"}
-              </button>
+              <SubmitButton mode={mode} />
             </div>
           </form>
         </div>
       </div>
     </>
+  );
+}
+
+function SubmitButton({ mode }) {
+  const { pending } = useFormStatus(); // This must be inside a child of <form>
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+    >
+      {pending ? (
+        <svg
+          className="animate-spin h-5 w-5 text-cyan-400 drop-shadow-md"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25 stroke-cyan-300"
+            cx="12"
+            cy="12"
+            r="10"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75 fill-cyan-700"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          ></path>
+        </svg>
+      ) : mode === "signin" ? (
+        "Sign in"
+      ) : (
+        "Create Account"
+      )}
+    </button>
   );
 }
