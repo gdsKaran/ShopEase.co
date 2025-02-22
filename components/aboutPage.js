@@ -10,6 +10,7 @@ import {
 } from "@headlessui/react";
 import { PlusSmallIcon, MinusSmallIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const faqs = [
   {
@@ -85,6 +86,15 @@ const footerNavigation = {
 
 export default function AboutPage() {
   const [openIndex, setOpenIndex] = useState(null);
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    // Navigate to the new page
+    router.push("/home");
+  };
 
   return (
     <div className="bg-white">
@@ -123,12 +133,37 @@ export default function AboutPage() {
                   smarter, live better with ShopEase!
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a
-                    href="home"
+                  <button
+                    onClick={handleClick}
+                    disabled={isLoading}
                     className="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-gray-100 shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                   >
-                    Enter the new World!
-                  </a>
+                    {isLoading ? (
+                      <>
+                        <svg
+                          className="animate-spin h-5 w-5 inline mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25 stroke-white"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75 fill-white"
+                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                          ></path>
+                        </svg>
+                        Entering...
+                      </>
+                    ) : (
+                      "Enter the new World!"
+                    )}
+                  </button>
                   {/* <a href="#" className="text-sm/6 font-semibold text-white">
                     Learn more <span aria-hidden="true">→</span>
                   </a> */}
