@@ -8,6 +8,9 @@ export async function getProduct(id) {
   const collection = db.collection("Products");
   const product = await collection.findOne({ _id: new ObjectId(id) });
 
+  if (!product) {
+    return null;
+  }
   // Convert `_id` to a string for React compatibility
   const serializedProduct = {
     ...product,

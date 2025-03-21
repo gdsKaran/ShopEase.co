@@ -3,14 +3,6 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full">
-        <body class="h-full">
-        ```
-      */}
       <main className="relative isolate  h-screen w-screen">
         <Image
           fill
